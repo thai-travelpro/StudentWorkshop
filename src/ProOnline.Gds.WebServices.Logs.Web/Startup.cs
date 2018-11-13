@@ -47,8 +47,14 @@ namespace ProOnline.Gds.WebServices.Logs.Web
                 app.UseHsts();
             }
 
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc(routes =>
+                {
+                    routes.MapRoute(
+                        "default", "{controller=Index}/{action=WebServiceLogs/Index}/{id?}");
+
+                });
         }
     }
 }
