@@ -1,0 +1,80 @@
+﻿@model ProOnline.Gds.WebServices.Logs.Web.Data.WebServiceLog
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>WebServiceLog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CreationDate" class="control-label"></label>
+                <input asp-for="CreationDate" class="form-control" />
+                <span asp-validation-for="CreationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gds" class="control-label"></label>
+                <input asp-for="Gds" class="form-control" />
+                <span asp-validation-for="Gds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Host" class="control-label"></label>
+                <input asp-for="Host" class="form-control" />
+                <span asp-validation-for="Host" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pcc" class="control-label"></label>
+                <input asp-for="Pcc" class="form-control" />
+                <span asp-validation-for="Pcc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WebServiceName" class="control-label"></label>
+                <input asp-for="WebServiceName" class="form-control" />
+                <span asp-validation-for="WebServiceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Version" class="control-label"></label>
+                <input asp-for="Version" class="form-control" />
+                <span asp-validation-for="Version" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="SuccessedReq" /> @Html.DisplayNameFor(model => model.SuccessedReq)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="SuccessedResp" /> @Html.DisplayNameFor(model => model.SuccessedResp)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalMillieseconds" class="control-label"></label>
+                <input asp-for="TotalMillieseconds" class="form-control" />
+                <span asp-validation-for="TotalMillieseconds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

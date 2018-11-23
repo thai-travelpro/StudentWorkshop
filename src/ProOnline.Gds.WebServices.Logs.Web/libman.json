@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "bootstrap@4",
+      "destination": "wwwroot/bootstrap/"
+    },
+    {
+      "library": "jquery@3.3.1",
+        "destination": "wwwroot/jquery"
+    },
+    {
+      "library": "bootstrap-datepicker@1.8.0",
+      "destination": "wwwroot/bootstrap-datepicker/"
+    },
+    {
+      "library": "datepicker-bootstrap@1.8.0",
+      "destination": "wwwroot/datepicker-bootstrap/"
+    },
+    {
+      "library": "jquery-datepicker@1.12.3",
+      "destination": "wwwroot/jquery-datepicker/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "air-datepicker@2.2.3",
+      "destination": "wwwroot/air-datepicker/"
+    }
+  ]
+}
