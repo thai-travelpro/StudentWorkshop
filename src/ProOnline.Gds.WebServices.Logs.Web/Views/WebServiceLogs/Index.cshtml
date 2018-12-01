@@ -3,19 +3,55 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var line = 1;
+
+
+
+
 }
+
+@*<link href="~/css/jquery.datetimepicker.css" rel="stylesheet"/>
+    <script src="~/lib/jquery/dist/jquery.js" type="text/javascript"></script>
+    <script src="~/lib/datetimepicker/jquery.datetimepicker.js" type="text/javascript"></script>*@
 
 <h2>Index</h2>
 
-<p>
-    @*<a asp-action="Create">Create New</a>*@
-    <input type="text" name="SearchString" value="" />
-    <input type="submit" value="ค้นหา" class="btn btn-default" />
+@using (Html.BeginForm())
+{
+    <div class="searchbar" style="text-align:center;">
+        <p>
+
+            @*<a asp-action="Create">Create New</a>*@
+            <label>Search:</label>      <input type="text" name="Search"    value=""        placeholder=" Search" />
+            <label>DateFrom:</label>    <input type="date" name="DateFrom"  id="datepicker" value="" />
+            <label>DateTo:</label>      <input type="date" name="DateTo"    id="datepicker" value="" />
+
+    <div>
+        <label>Type:</label>
+        <input type="checkbox" name="types" id="today" value="today" />Today &nbsp;
+        <input type="checkbox" name="types" value="month" />This Month &nbsp;
+        <input type="checkbox" name="types" value="quater" />This Quater &nbsp;
+        <input type="checkbox" name="types" value="year" />This Year
+    </div>
+
+    <div> <input type="submit" value="Search" class="btn btn-success" /></div>
+
 
 </p>
+    </div>
+
+} 
+
+
+
 <table class="table">
     <thead>
-        <tr>
+        <tr style="background-color:Highlight">
+
+            <th>
+                @("#")
+
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.CreationDate)
             </th>
@@ -50,44 +86,56 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreationDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gds)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Host)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pcc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WebServiceName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Version)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SuccessedReq)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SuccessedResp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalMillieseconds)
-            </td>
-            @*<td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>*@
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @(line++)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gds)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Host)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pcc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WebServiceName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Version)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SuccessedReq)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SuccessedResp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalMillieseconds)
+                </td>
+                @*<td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>*@
+            </tr>
+        }
     </tbody>
+
 </table>
+<div class="page" style="text-align:center">
+        <a>Back</a>
+        <a>1</a>
+        <a>2</a>
+        <a>3</a>
+        <a>Next</a>
+</div>

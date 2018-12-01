@@ -19,10 +19,41 @@ namespace ProOnline.Gds.WebServices.Logs.Web.Controllers
         }
 
         // GET: WebServiceLogs
+
         public async Task<IActionResult> Index()
         {
-            return View(await _context.WebServiceLogs.ToListAsync());
+            //var rows = new string[100];
+
+            //int page = 1;
+            //int rowPage = 10;
+
+            //var totalPage = rows.Length / rowPage;
+
+            return View(_context.WebServiceLogs.Take(10));
         }
+
+        // POST: WebServiceLogs/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index(Models.SearchModel Search)
+        {
+
+            var models = new List<WebServiceLog>();
+            
+
+            if (ModelState.IsValid)
+            {
+                //var webServiceLog = await _context.WebServiceLogs.FirstOrDefaultAsync(models => models.Host == Search);
+                //_context.Add(webServiceLog);
+                //await _context.SaveChangesAsync();
+                //return RedirectToAction(nameof(Index));
+            } 
+            //return View(webServiceLog);
+            return View(models);
+        }
+
 
         // GET: WebServiceLogs/Details/5
         public async Task<IActionResult> Details(int? id)

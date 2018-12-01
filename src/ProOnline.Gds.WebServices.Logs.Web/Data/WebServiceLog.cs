@@ -6,6 +6,7 @@ namespace ProOnline.Gds.WebServices.Logs.Web.Data
     public class WebServiceLog
     {
         [Key]
+   
         public int Id { get; set; }
         public DateTime CreationDate { get; set; }
         public string Gds { get; set; }
